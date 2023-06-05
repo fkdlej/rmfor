@@ -1,0 +1,520 @@
+:root {
+  --color_-text1: #eee;
+  --color-main1: #0f0;
+  --color-main2: #000;
+  --color-darkred: #100;
+  --color-darkgreen: #010;
+  --color-contrast_black: #111;
+  --color-gold: gold;
+  --color-a_block: rgba(0, 0, 0, 0.5);
+  --color-little_green: #1e1;
+  --color-bright_green: #fef;
+  --color-White: #fff;
+  --color-white-red: #fee;
+  --color-white-green: #efe;
+  --color-white-bule: #eef;
+  --color-darkbule: #011;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 1s;
+  color: var(--color_-text1);
+  list-style: none;
+  z-index: 0;
+  font-size: 1em;
+  word-break: break-all;
+}
+
+::selection {
+  background: inherit;
+  color: inherit;
+}
+
+input {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+input[type="color" i]::-webkit-color-swatch-wrapper {
+  background: var(--color-main2);
+  width: 2em;
+  border: none;
+  padding: 0.5em;
+  border: 0.12em solid var(--color-White);
+  box-shadow: -1em 0 var(--color-darkgreen);
+}
+
+input[type="color" i]::-webkit-color-swatch {
+  color-scheme: light only;
+  background: red;
+  min-width: 0px;
+  -webkit-user-modify: read-only !important;
+  border-style: solid;
+  border: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-main1);
+  border-radius: 0.375em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-main2);
+  border-radius: 0.375em;
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    var(--color-main2) 49%,
+    var(--color-main1) 50%,
+    var(--color-main2) 51%
+  );
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+body > div.sting_color {
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  overflow-y: scroll;
+}
+
+body > div.sting_color > h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+}
+
+body > div.sting_color > ul {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  align-items: center;
+}
+
+body > div.sting_color > ul > li {
+  background: var(--color-a_block);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  border: 0.12em solid var(--color-main1);
+  margin-top: 2em;
+  padding: 1em 0;
+}
+
+body > div.sting_color > ul > li > div {
+  width: 2em;
+  height: 2em;
+  margin: 0 1em;
+}
+
+body > div.sting_color > ul > li > button {
+  color: var(--color_-text1);
+  background: var(--color-contrast_black);
+  border: 0.16em solid red;
+  padding: 0 1em;
+  font-size: 1.25em;
+  margin: 0 1em;
+}
+
+body > main {
+  box-shadow: 0.75em 0 0.375em var(--color-darkred),
+    -0.75em 0 0.375em var(--color-darkgreen);
+  width: 425px;
+  overflow: hidden;
+}
+
+body > main > div.Game_screen {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: flex-end;
+  background: linear-gradient(
+    to top,
+    var(--color-white-green),
+    var(--color-main2)
+  );
+  box-shadow: 0 0.75em 0.75em var(--color-contrast_black);
+}
+
+body > main > div.shopping_screen {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  justify-content: left;
+  align-items: center;
+  background: linear-gradient(
+    to top,
+    var(--color-White),
+    var(--color-white-green)
+  );
+}
+
+body > main > div.shopping_screen > div.item {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 75%;
+  width: 75%;
+  margin: 12.5% auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+body > main > div.shopping_screen > div.item > img {
+  height: 50%;
+  width: auto;
+}
+
+body > main > div.shopping_screen > div.item > *:not(img) {
+  position: absolute;
+}
+
+div.shopping_screen h1 {
+  top: 25%;
+  margin: 0 auto;
+  color: var(--color-contrast_black);
+  font-size: 2em;
+}
+
+div.shopping_screen > h1 {
+  top: 25%;
+  margin: 0 auto;
+  color: var(--color-contrast_black);
+  font-size: 2em;
+  border-bottom: 1px solid var(--color-main2);
+  padding: 0 1em;
+}
+
+div.shopping_screen h1 span.shopping_span {
+  color: var(--color-gold);
+  text-shadow: 0.5em 0 0.25em var(--color-gold);
+}
+
+div.shopping_screen button {
+  bottom: 25%;
+  margin: 0 auto;
+  color: var(--color-contrast_black);
+  background: transparent;
+  border: 1px solid var(--color-main2);
+  border-radius: 0.25em;
+  padding: 1em;
+}
+
+body > main > div.growth_screen {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    22.5deg,
+    var(--color-contrast_black),
+    var(--color-main2)
+  );
+  overflow: hidden;
+  padding-top: 10vh;
+  position: relative;
+}
+
+body > main > div.growth_screen span {
+  color: var(--color-gold);
+}
+
+body > main > div.growth_screen > h1 {
+  position: absolute;
+  height: 10vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-size: 2.5em;
+  line-height: 10vh;
+  text-align: center;
+}
+
+body > main > div.growth_screen > address {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+body > main > div.growth_screen > address > h2 {
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 2em;
+}
+
+body > main > div.growth_screen > address > button {
+  width: 50%;
+  background: var(--color-main2);
+  font-size: 1.5em;
+  font-weight: 700;
+  height: 50%;
+  border: none;
+  border-bottom: 0.16em solid var(--color-main1);
+}
+
+body > main.full > .Game_screen > h1 {
+  text-align: start;
+  font-size: 3em;
+  line-height: 3em;
+}
+
+body > main > div.Game_screen h1 {
+  position: absolute;
+  color: var(--color-main1);
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
+  line-height: 1.5em;
+  margin-top: 0.75em;
+  padding: 0.375em;
+  top: 0;
+  left: 0;
+  background: var(--color-a_block);
+}
+
+body > main > div.Game_screen > nav {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 3em;
+  left: 0;
+  display: block;
+  z-index: -1;
+}
+
+body > main > div.Game_screen > nav li {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+  width: 100%;
+  height: auto;
+}
+
+body > main > div.Game_screen > div {
+  display: flex;
+  width: calc(100% / 3);
+  height: auto;
+  flex-flow: row wrap;
+  margin-bottom: 10vh;
+}
+
+body > main > div.Game_screen > div.op {
+  margin-bottom: 0;
+}
+
+body > main > div.Game_screen > div > img:last-child {
+  width: 100%;
+  height: auto;
+}
+
+body > main > div.Game_screen > div > img:not(div > img:last-child) {
+  width: 50%;
+  height: auto;
+}
+
+body > main > div.Game_screen > address.dialog {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  background: var(--color-darkgreen);
+  padding: 0.75em;
+  overflow-y: scroll;
+  bottom: 0;
+  margin: 0 auto;
+  z-index: 2;
+  margin-bottom: 10vh;
+}
+
+body > main > div.Game_screen > address.dialog > ul {
+  display: flex;
+  flex-flow: column-reverse wrap;
+}
+
+body > main > div.Game_screen > address.dialog li {
+  background: transparent;
+  color: var(--color-main1);
+  box-shadow: inset 0 0 0.375em var(--color-main1);
+  margin: 0.75em 0;
+  padding: 0.375em;
+  border-radius: 0.375em;
+  height: 1.75em;
+  overflow: hidden;
+}
+
+body > main > div.Game_screen > address.eft {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 90vh;
+  background: var(--color-darkgreen);
+  padding: 0.75em;
+  overflow-y: scroll;
+  z-index: 3;
+}
+
+body > main > div.Game_screen > address.eft ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+}
+
+body > main > div.Game_screen > address.eft ul::-webkit-scrollbar,
+body > main > div.Game_screen > address.eft::-webkit-scrollbar {
+  display: none;
+}
+
+body > main > div.Game_screen > address.eft li {
+  background: transparent;
+  color: var(--color-main1);
+  box-shadow: inset 0 0 0.375em var(--color-main1);
+  padding: 0.75em;
+  border-radius: 0.375em;
+  width: 33.3%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+body > main > div.Game_screen > address.eft li img {
+  width: 50%;
+  opacity: 0.25;
+}
+
+body > main > div.Game_screen > address.eft li h1 {
+  position: relative;
+}
+
+body > main > div.Game_screen > address.eft li p,
+body > main > div.Game_screen > address.eft li span {
+  font-size: 1.5em;
+  color: var(--color-little_green);
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+body > main > div.Game_screen > address.eft li img:hover {
+  width: 50%;
+  height: auto;
+  opacity: 0.5;
+}
+
+body > main > div.Game_screen > address.eft li p:hover,
+body > main > div.Game_screen > address.eft li span:hover {
+  font-size: 2em;
+  color: var(--color-gold);
+  font-weight: 700;
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  position: relative;
+}
+
+body > main > div.Game_screen > address.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  background: var(--color-a_block);
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 4;
+  overflow: auto;
+  opacity: 1;
+}
+
+body > main > div.Game_screen > address.menu.op {
+  opacity: 0;
+}
+
+body > main > div.Game_screen > address.menu > button {
+  margin: 12.5% 0;
+  width: 100%;
+  height: 12.5%;
+  box-shadow: inset 0 0 0.375em var(--color-main1);
+  background: transparent;
+  color: var(--color-main1);
+  border: none;
+}
+
+body > main > div.Interaction {
+  position: fixed;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  bottom: 0;
+  width: 425px;
+}
+
+body > main > div.Interaction button {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 10vh;
+  font-size: 1.5em;
+  font-weight: bold;
+  background: linear-gradient(45deg, var(--color-main2), var(--color-darkred));
+}
+
+body > main > div.Interaction button:hover {
+  background: linear-gradient(
+    45deg,
+    var(--color-main2),
+    var(--color-darkgreen)
+  );
+}
+
+span.hover {
+  display: block;
+  background: var(--color-white-bule);
+  color: var(--color-darkbule);
+  padding: 1em;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform-origin: center bottom;
+  transform: translateX(-50%) translateY(-100%);
+  z-index: 7;
+}
+
+#canvas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  margin: auto 0;
+  pointer-events: none;
+}
+
+.off {
+  display: none !important;
+}

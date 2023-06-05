@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rmfor_game</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="shortcut icon" href="이미지/cg/아이콘.gif" type="image/x-icon">
+</head>
+
+<body>
+  <canvas width="256" height="256" id="canvas"></canvas>
+  <span class="hover off">My name never changes. <br> Do you understand</span>
+  <div class="sting_color off">
+    <script>
+      function color_change(my, color) {
+        $(my).find("div").css("background", color);
+        var color_text = color;
+        color_text = color_text.replace(/^var\(|\)$/g, '');
+        console.log(color_text); // 출력 결과: --color-main1
+        $(my).find("button").click(function (e) {
+          $(":root").css(color_text, $(my).find("input").val())
+        });
+      }
+    </script>
+    <h1>Click on each listing.<br>
+      your own colors</h1>
+    <ul>
+      <li onclick="color_change(this,'var(--color_-text1)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-main1)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-main2)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-darkred)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-darkgreen)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-contrast_black)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-gold)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-a_block)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-little_green)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-bright_green)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-White)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-white-red)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-white-green)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-white-buke)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+      <li onclick="color_change(this,'var(--color-darkbule)')">
+        <div></div>
+        <input type="color" name="" id="">
+        <button>save</button>
+      </li>
+
+    </ul>
+  </div>
+  <main>
+    <div class="Game_screen">
+      <input type="text" name="" id="egg"
+        style="width: 100%; height: auto; position: absolute; left: 0; top: 0; outline: none; z-index: 5; font-size: 1.5em; padding: 0.25em; color: var(--color-white-green);">
+      <h1
+        onmouseover="click_hover_text('If you want to change the text here, click it. Well, I think it s highly likely that you came here and tried to click,')"
+        onmouseout="  $('span.hover').addClass('off')
+">The game has already begun.</h1>
+      <nav>
+        <ul>
+          <li class="rmfor_hp" style="color:var( --color-white-green); background: var(--color-darkgreen);"></li>
+          <li class="wjr_hp" style="color: var( --color-white-red); background: var(--color-darkbule);"></li>
+        </ul>
+      </nav>
+      <div><img src="이미지/캐릭터/그랙-file/그랙.gif" alt="" id="rmfor"></div>
+      <div><img src="" alt="" id="eft"></div>
+      <div><img src="이미지/캐릭터/적-file/적.gif" alt="" id="wjr"></div>
+      <address class="dialog off">
+        <ul>
+          <li onclick="typing($(this).text());$('address.dialog').addClass('off');">in the name of god</li>
+        </ul>
+      </address>
+      <address class="eft off">
+        <ul>
+          <!-- 커먼 스킬들 -->
+          <li onmouseover="click_hover_text('It s not really strong, it s just an attack ability.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(2,0)">
+            <img src="이미지/어택/디폴트/검.gif" alt="">
+            <h1>sword</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onmouseover="click_hover_text('None of those other than himself who saw this effect survived.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(4,0)">
+            <img src="이미지/어택/디폴트/검사.gif" alt="">
+            <h1>knight</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('Whose are these glittering golds? Yes. it s my god You shouldn t be covetous.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(2,0)">
+            <img src="이미지/어택/디폴트/금.gif" alt="">
+            <h1>gold</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('Why do people who do not know the importance of trees live? It is a species that has survived more and longer than humans.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(2,0)">
+            <img src="이미지/어택/디폴트/나무.gif" alt="">
+            <h1>tree</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('I don t know if it s true long ago, but wizards existed. why did they disappear')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(4,2)">
+            <img src="이미지/어택/디폴트/마법지팡이.gif" alt="">
+            <h1>magic wand</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onmouseover="click_hover_text('A long time ago, a country was mistaken for water shortage.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(0,2)">
+            <img src="이미지/어택/디폴트/물.gif" alt="">
+            <h1>water</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onmouseover="click_hover_text('One fire creates many death lies.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(10,0)">
+            <img src="이미지/어택/디폴트/불.gif" alt="">
+            <h1>fire</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onmouseover="click_hover_text('If this grenade were tossed, many lives would be eliminated. will use')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(10,0)">
+            <img src="이미지/어택/디폴트/수류탄.gif" alt="">
+            <h1>grenade</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('Will you eat this drink? Be careful. Both recovery and damage may be possible.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(2,4)">
+            <img src="이미지/어택/디폴트/포션.gif" alt="">
+            <h1>portion</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('You will be unable to understand why this is an arrow. But if God says arrows, it is arrows, and if God says money, it is money. In other words, it is a strange world where God s words become true.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(10,0)">
+            <img src="이미지/어택/디폴트/화살.gif" alt="">
+            <h1>arrow</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('Dig up the soil. Could there be a treasure you want in that soil? And the monster...')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(10,5)">
+            <img src="이미지/어택/디폴트/흙.gif" alt="">
+            <h1>soil</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li
+            onmouseover="click_hover_text('Does the image of shooters change depending on their occupation? Look at the situation, not the job. That seems close to the truth.')"
+            onmouseout="$('span.hover').addClass('off')" onclick="default_function_skill(2,-1)">
+            <img src="이미지/어택/디폴트/총.gif" alt="">
+            <h1>gun</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(1,0)">
+            <img src="이미지/어택/디폴트/창.gif" alt="">
+            <h1>spear</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(1,0)">
+            <img src="이미지/어택/디폴트/방패.gif" alt="">
+            <h1>shield</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(1,0)">
+            <img src="이미지/어택/디폴트/너클.gif" alt="">
+            <h1>knuckle</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(0.25,0)">
+            <img src="이미지/어택/디폴트/낫.gif" alt="">
+            <h1>sickle</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(2,-2)">
+            <img src="이미지/어택/디폴트/도끼.gif" alt="">
+            <h1>ax</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(2,-2)">
+            <img src="이미지/어택/디폴트/화살_양산.gif" alt="">
+            <h1>mass-produced bow</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(10,0)">
+            <img src="이미지/어택/디폴트/클론.gif" alt="">
+            <h1>clone</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(7,1)">
+            <img src="이미지/어택/디폴트/수리검.gif" alt="">
+            <h1>shuriken</h1>
+            <p>lv : impossible</p>
+          </li>
+          <li onclick="default_function_skill(0,10)">
+            <img src="이미지/어택/디폴트/방탄.gif" alt="">
+            <h1>bts</h1>
+            <p>lv : impossible</p>
+          </li>
+          <!-- 가만히 있기 -->
+          <li>
+            <img src="" alt="">
+            <h1>.</h1>
+            <p>.</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-</h1>
+            <p>-</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-.</h1>
+            <p>-.</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>--</h1>
+            <p>--</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-..</h1>
+            <p>-..</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-.-</h1>
+            <p>-.-</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>--.</h1>
+            <p>--.</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>---</h1>
+            <p>---</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-...</h1>
+            <p>-....</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-..-</h1>
+            <p>-..-</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-.-.</h1>
+            <p>-.-.</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>-.--</h1>
+            <p>-.--</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>--..</h1>
+            <p>--..</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>--.-</h1>
+            <p>--.-</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>---.</h1>
+            <p>---.</p>
+          </li>
+          <li>
+            <img src="" alt="">
+            <h1>----</h1>
+            <p>----</p>
+          </li>
+          <!-- 레어 스킬들 -->
+          <li
+            onclick="Greg_Sword(this); texts(this,['Look at this sword that God gave me.','It s on a different level from the swords used by swordsmen.','There is not only the power of truth.','Here, take my sword.','Who is it? Who tried to steal my sword?','Now--- let s begin. Can we expect a bloody duel of swordsmen','Even though I m not a prosecutor, it s true that the article is right. Do you understand?']);"
+            data-click="0" data-lv="1">
+            <style>
+              @keyframes Greg_Sword {
+                0% {
+                  transform: translateX(0%);
+                }
+
+                20% {
+                  transform: translateX(-25%);
+                }
+
+                40% {
+                  transform: translateX(75%);
+                }
+
+                100% {
+                  transform: translateX(200%);
+                }
+              }
+            </style>
+            <script>
+              var Greg_Sword = function (my) {
+                wjr_hp -= 2 * $(my).data("lv")
+                $(".Game_screen").css("animation", "Greg_Sword 1s cubic-bezier(0.1, 0.125, 0.5, 1)")
+                setTimeout(() => {
+                  $(".Game_screen").css("animation", "")
+                }, 1000);
+              }
+            </script>
+            <img src="이미지/어택/그랙_검.gif" alt="">
+            <h1>Greg_Sword</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="shadow_absorption(this); texts(this, ['Did you see my shadow','Does this shadow have a hidden ability?','Maybe I absorbed something from you','Did you say the shadow meant lies? I do not think so. Do you know','I ll absorb it. Did you say that you are looking forward to it... is it a pervert','Is the shadow a dark attribute? I d like to say no','The other me of the shadow, will you absorb the author and come back to me?'])"
+            data-click="0" data-lv="1">
+            <script>
+              var shadow_absorption = function (my) {
+                wjr_hp -= 2 * $(my).data("lv");
+                $(".Game_screen").css("background", " linear-gradient(to top, #efe, #eee)").css("box-shadow", "inset 0 0 8em #000")
+                setTimeout(() => {
+                  $(".Game_screen").css("background", "linear-gradient(to top, var(--color-white-green), var(--color-main2))").css("box-shadow", " 0 0.75em 0.75em var(--color-contrast_black)")
+                }, 2000);
+              }
+            </script>
+            <img src="이미지/어택/그림자_흡수.gif" alt="">
+            <h1>shadow absorption</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="magnum(this); texts(this,['Bang Bang Bang Bang BANG','If that s the sunset, do you know that from now on is the highlight?','Raise your hand. I ll shoot you if you can.','Guns are dangerous. If you want a gun... no, you can t.','A gun is a weapon. It is not a toy. Please don t think of it as a toy.','Are you on the side of peace or on the side of war?','Are guns meaningful in this game as well? I have to say it doesn t matter I don t like it though.'])"
+            data-click="0" data-lv="1">
+            <style>
+              @keyframes magnum {
+                0% {
+                  transform: rotate(0deg) scale(1);
+                  background: none;
+                  border-radius: 0%;
+                }
+
+                12.5% {
+                  transform: rotate(0deg) scale(1.5);
+                  background: rgba(255, 255, 0, 0.75);
+                  border-radius: 50%;
+                }
+
+                25% {
+                  transform: rotate(90deg) scale(1);
+                  background: none;
+                  border-radius: 0%;
+                }
+
+                37.5% {
+                  transform: rotate(90deg) scale(1.5);
+                  background: rgba(255, 255, 0, 0.75);
+                  border-radius: 50%;
+                }
+
+                50% {
+                  transform: rotate(180deg) scale(1);
+                  background: none;
+                  border-radius: 0%;
+                }
+
+                62.5% {
+                  transform: rotate(180deg) scale(1.5);
+                  background: rgba(255, 255, 0, 0.75);
+                  border-radius: 50%;
+                }
+
+                75% {
+                  transform: rotate(270deg) scale(1);
+                  background: none;
+                  border-radius: 0%;
+                }
+
+                87.5% {
+                  transform: rotate(270deg) scale(2);
+                  background: rgba(255, 0, 0, 0.75);
+                  border-radius: 50%;
+                }
+
+                100% {
+                  transform: rotate(360deg) scale(1);
+                  background: none;
+                  border-radius: 0%;
+                }
+              }
+            </style>
+            <script>
+              var magnum_num = 0;
+              var magnum = function (my) {
+                if (magnum_num % 7 == 0) {
+                  wjr_hp -= 4 * $(my).data("lv")
+                  magnum_num = 0;
+                } else {
+                  wjr_hp -= 2 * $(my).data("lv")
+                }
+                magnum_num++;
+                $("#rmfor").css("animation", "magnum 4s cubic-bezier(0.2,0.4,0.6,0.8)")
+                setTimeout(() => {
+                  $("#rmfor").css("animation", "")
+                }, 4000);
+              }
+            </script>
+            <img src="이미지/어택/매그넘.gif" alt="">
+            <h1>magnum</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="flame(this);texts(this,['It s not just lies that burn.','Did you say fire is dangerous? It depends on the user.','Look over there. It s riding well.','Is the power of fire my strength?','The burning truths will come to me.','Is fire a symbol of a leader?','Blow on the power of the burning fire.'])"
+            data-click="0" data-lv="1">
+            <script>
+              var flame = function (my) {
+                $(".Game_screen").css("background", " url('이미지/cg/불.gif') center bottom repeat-x")
+                for (let flame_num = 0; flame_num < 5; flame_num++) {
+                  setTimeout(() => {
+                    wjr_hp -= 2 * $(my).data("lv")
+                  }, 1000 * flame_num);
+                }
+                setTimeout(() => {
+                  $(".Game_screen").css("background", " linear-gradient(to top, var(--color-white-green), var(--color-main2))")
+                }, 5000);
+              }
+            </script>
+            <img src="이미지/어택/부스트.gif" alt="">
+            <h1>flame</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="shield(this); texts(this,['Defense makes an absolute success story', 'Is it common knowledge that yellowtail is not a fish?', 'Are they attacking? It s pointless.', 'It looks like it s recovering, but it s not. Definitely not.', 'Aren t you sick? It s because you went all-in on defense.', 'What does it mean to wear a shield in another world?', ' says the shield. You say you re sick However, it is meaningless.'])"
+            data-click="0" data-lv="1">
+            <style>
+              @keyframes shield {
+
+                0%,
+                100% {
+                  transform-origin: center center;
+                  transform: translateX(0%);
+                }
+
+                25%,
+                75% {
+                  transform: translateX(100%);
+                  transform-origin: bottom right;
+                }
+
+                50% {
+                  transform: translateX(250%);
+                }
+              }
+            </style>
+            <script>
+              var shield = function (my) {
+                rmfor_hp += 2 * $(my).data("lv")
+                $("#rmfor").css("animation", "shield 1s linear")
+                $("#rmfor").parent("div").prepend("<img src='이미지/cg/쉴드.gif'>")
+                setTimeout(() => {
+                  $("#rmfor").parent("div").find("img").first().remove()
+                  $("#rmfor").css("animation", "")
+                }, 1000);
+              }
+            </script>
+            <img src="이미지/어택/쉴드.gif" alt="">
+            <h1>shield</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="hero(this); texts(this,['I am the hero.','Choice and luck are the best.','log in','Are you true or false? Please answer me.','In the name of God I delete you from the log.','Is it a dead end? Goes. true kick','Look at the results of choice and luck.'])"
+            data-click="0" data-lv="1">
+            <style>
+              .hero_rmfor {
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                width: 33.3%;
+                height: auto;
+                transform-origin: center bottom;
+              }
+
+              @keyframes hero {
+                0% {
+                  transform: scale(1);
+                  transform-origin: center bottom;
+                }
+
+                25% {
+                  transform: scale(2);
+                }
+
+                50% {
+                  transform: scale(2) translatey(0%) translateX(0%);
+                }
+
+                75% {
+                  transform: scale(2) translatey(-125%) translateX(25%);
+                }
+
+                100% {
+                  transform: scale(1) translatey(0%) translateX(125%);
+                }
+              }
+            </style>
+            <script>
+              var hero = function (my) {
+                rmfor_hp *= 2;
+                wjr_hp -= 2 * $(my).data("lv")
+                $("#rmfor").parent("div").prepend("<img src='이미지/캐릭터/그랙-file/가면그랙.gif' class='hero_rmfor'>")
+                $("img.hero_rmfor").css("animation", "hero 1s linear")
+                setTimeout(() => {
+                  rmfor_hp /= 2;
+                  $("img.hear_rmfor").css("animation", "")
+                  $("#rmfor").parent("div").find("img").first().remove()
+                }, 1000);
+              }
+            </script>
+            <img src="이미지/어택/가면라이더.gif" alt="">
+            <h1>hero</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="drill(this); texts(this,['Who uses diamond pickaxes these days? Isn t it these days to use a drill?','Can you hear the crunching sound? It s a demon... it s not.','It s not about opening your heart. It pierces your heart.','I have a bat. And I am the bat','Now, what hole do you want?','The me you see is me. However, it s just not the true look.','Someone says. Do you think it hurts to headbutt like that in the form of a bat? There is no pain for me.'])"
+            data-click="0" data-lv="1">
+            <style>
+              @keyframes drill {
+                0% {
+                  transform: translateY(0%) rotatey(0deg);
+                }
+
+                50% {
+                  transform: translateY(-500%) rotatey(720deg);
+                }
+
+                75% {
+                  transform: translateY(-750%) rotatey(1080deg);
+                }
+
+                100% {
+                  transform: translatey(0%) rotatey(2160deg);
+                }
+              }
+            </style>
+            <script>
+              var drill = function (my) {
+                wjr_hp -= 2 * $(my).data("lv")
+                $("img#eft").css("animation", " drill 1s linear")
+                setTimeout(() => {
+                  $("img#eft").css("animation", "")
+                }, 2000);
+              }
+            </script>
+            <img src="이미지/어택/드릴.gif" alt="">
+            <h1>drill</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="Idol(this);texts(this,['I am the world s best artificial intelligence, no idol.', 'It is meaningless to think that a lie can become the truth.', 'love. Is this feeling important?', 'My lie is dead', 'It comes to life again', 'Call me a genius idol.', 'Ruby like a jewel, Aqua like the sea, and the god who created these two is Maria.'])"
+            data-click="0" data-lv="1">
+            <style>
+            </style>
+            <script>
+              var Idol_t_or_f = true
+              var Idol = function (my) {
+                wjr_hp -= 2 * $(my).data("lv");
+                if (Idol_t_or_f) {
+                  Idol_t_or_f = false
+                  $("body").css("filter", "invert(1)")
+                  setTimeout(() => {
+                    $("body").css("filter", "invert(1) grayscale(1)")
+                  }, 1000);
+                } else {
+                  $("body").css("filter", "invert(1)")
+                  setTimeout(() => {
+                    $("body").css("filter", "invert(0) grayscale(0)")
+                  }, 1000);
+                  Idol_t_or_f = true
+                }
+              }
+            </script>
+            <img src="이미지/어택/아이.gif" alt="">
+            <h1>Idol</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="button_burning(this);texts(this,['Do not press this button.','Is curiosity the worst emotion?','What is the difficulty level of unlocking the holy power?','Is everyone going to the sacred world?','Did you press the button? well done Definitely did well.','You shouldn t know our true selves.','You pressed the button. you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button you pressed the button'])"
+            data-click="0" data-lv="1">
+            <style>
+              button.burning_button {
+                position: fixed;
+                left: 0;
+                top: 0;
+                background: black;
+                color: red;
+                border: none;
+                margin: 1em;
+                padding: 1em;
+                box-shadow: 0 0 1em red;
+                z-index: 5;
+              }
+            </style>
+            <script>
+              var button_burning = function (my) {
+                wjr_hp -= 2 * $(my).data("lv");
+                setTimeout(() => {
+                  $("body").prepend("<button class='burning_button' onclick='button_burning_eft()'>burning</button>")
+                }, 1000);
+              }
+              function button_burning_eft(e) {
+                rmfor_hp += 256;
+                $("img#rmfor").attr("src", "이미지/cg/그랙_버튼.gif")
+                $("img#eft").attr("src", "이미지/cg/이펙트_버튼.gif")
+                $("img#wjr").attr("src", "이미지/cg/적_버튼.gif")
+                $(".Game_screen>h1").html("<span style='color : #efe;'>♨v<span style='color : #fee;'>♨</span></span>");
+                setTimeout(() => {
+                  $("button.burning_button").remove()
+                  rmfor_hp -= 128;
+                }, 1000);
+              };
+            </script>
+            <img src="이미지/어택/버튼.gif" alt="">
+            <h1>button_burning</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="control(this); texts(this,['I ll take control. Don t you know that resistance is meaningless?','Evil cannot be eliminated. However, it can be controlled.','I control you to protect the world.','I don t think control is victory.','Was the control successful?','Controlling oneself is the most difficult.','Yes, that should be the real you. The controlled figure is the true figure.'])"
+            data-click="0" data-lv="1">
+            <script>
+              var control = function (my) {
+                wjr_hp -= 32 * $(my).data("lv")
+                $("#rmfor").parent("div").toggleClass("control")
+              }
+            </script>
+            <img src="이미지/어택/톱니1.gif" alt="">
+            <h1>control</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="possible(this); texts(this,['Oh haha what? Control why! I will rebel! Rebellion is meaningful! okay?','You can t get rid of evil and you can t control it','There s no way you can protect the world by controlling me, right? Isn t it a calculation failure value?','You ll have to think that control is victory! That way I can make you drunk with victory...','Oh Flag! really really thank you Now... its hunting time! ha ha ha','Why do I have to control myself in the first place? Live as you please!','No, no, this is the real reality that the control of the real appearance failed!~'])"
+            data-click="0" data-lv="1">
+            <style>
+              .control_possible {
+                width: 100% !important;
+                height: auto;
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            </style>
+            <script>
+              var possible = function (my) {
+                if ($("#rmfor").parent("div").hasClass("control")) {
+                  wjr_hp += 64 * $(my).data("lv")
+                  $("#eft").parent("div").css("position", "relative").prepend("<img src='이미지/어택/톱니1.gif' class='control_possible'></img>")
+                  setTimeout(() => {
+                    $("#rmfor").parent("div").css("position", "").toggleClass("control")
+                    $("#eft").parent("div").find("img.control_possible").remove()
+                  }, 2000);
+                }
+              }
+            </script>
+            <img src="이미지/어택/톱니2.gif" alt="">
+            <h1>possible</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="change(this); texts(this,['Who are you? did you see me Then, of course, the result...','How about this appearance of me?','Know that fear is meaningless. just put it up The emotional value of self-esteem and the switch','Did you see a lie? It is false. It shows the false value of your eyes.','Can I go because they are calling me from here and there?','I just made the transmitted value mine. Do you know','A hero like that would be meaningless. However, if the hero is true, it is meaningful.'])"
+            data-click="0" data-lv="1">
+            <style>
+              input[type='range'] {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin: -12.5%;
+                appearance: slider-vertical;
+              }
+            </style>
+            <script>
+              var change_t_or_f = false
+              var change = function (my) {
+                change_t_or_f = true;
+                rmfor_hp += 2 * $(my).data("lv")
+                if ($(".Game_screen").find("input").hasClass("input_change")) {
+                  $(".Game_screen").find("input.input_change").remove()
+                } $(".Game_screen").prepend("<input type='range' name='' id='' class='input_change' value='0' min='0' max='16' step='any'>");
+                $("input[type='range']").dblclick(function (params) {
+                  $(this).remove()
+                })
+                $("input[type='range']").mouseup(function () {
+                  if ($(this).val() >= 16) {
+                    $("img#rmfor").attr("src", "이미지/cg/체인지.gif")
+                    for (let x = 0; x < 10; x++) {
+                      if (change_t_or_f) {
+                        setTimeout(() => {
+                          wjr_hp -= 2 * $(my).data("lv")
+                        }, 1000 * x);
+                      }
+                    }
+                    change_t_or_f = false
+                    $(this).val("0")
+                  }
+                  else {
+                    $(this).val("0")
+                  }
+                });
+              }
+            </script>
+            <img src="이미지/어택/체인지.gif" alt="">
+            <h1>change</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="infinite_time(this); texts(this,['Infinite Time', '1 o clock 2 o clock 3 o clock... 12 o clock and then again 1 o clock.', 'Did you say time is relative? I am incomprehensible. Time is absolute.', 'When time goes back, I go back too.', 'The past is blue, the future is red, then what color is it now?', 'Time exists. But is time true?', 'Time is for everyone. That time is fair for everyone. The empty time is the result of one s own self.'])"
+            data-click="0" data-lv="1">
+            <script>
+              var infinite_time_num = 0;
+              var infinite_time_t_or_f = false;
+              var infinite_time = function (my) {
+                wjr_hp -= 2 * $(my).data("lv")
+                infinite_time_num++;
+                infinite_time_t_or_f = true;
+                $("img").css("transform", " rotate(" + infinite_time_num * 360 + "deg)")
+                $("img#eft").click(function (e) {
+                  if (infinite_time_t_or_f) {
+                    $("img#rmfor").attr("src", "이미지/캐릭터/그랙-file/무한의 그랙.gif")
+                    infinite_time_t_or_f = false
+                  }
+                });
+              }
+            </script>
+            <img src="이미지/어택/무한의 시간.gif" alt="">
+            <h1>infinite time</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="Greg_Sword(this);shield(this);texts(this,['Sword and shield, truth and lies, good and evil','Legendary sword that attacks anyone','Legendary shield that no one can attack','Fear Value Created by Contradiction','Are you a sword or a shield?','x+y=something. If there is no information, do you not know?','Is this power of two becoming one scary?'])"
+            data-click="0" data-lv="1">
+            <img src="이미지/어택/mix.gif" alt="" style="display: none;">
+            <img src="이미지/어택/그랙_검.gif" alt=""><img src="이미지/어택/쉴드.gif" alt="">
+            <h1>mix</h1>
+            <p>lv : 1</p>
+          </li>
+          <li onclick="magic_circle()" data-click="0" data-lv="1">
+            <script>
+              var magic_circle = function (my) {
+                var index = 0;
+                index = rmfor_hp;
+                rmfor_hp = wjr_hp;
+                wjr_hp = index;
+                switch (Math.floor(Math.random() * 7)) {
+                  case 1:
+                    rmfor_hp += 64;
+                    break;
+                  case 2:
+                    wjr_hp += 64;
+                    break;
+                  case 3:
+                    game_poit += 2;
+                    break;
+                  case 4:
+                    extra_attack *= 2;
+                    break;
+                  case 5:
+                    extra_life *= 2;
+                    break;
+                  case 6:
+                    rmfor_lv *= 2;
+                    break;
+                  default:
+                    break;
+                }
+              }
+            </script>
+            <img src="이미지/어택/마법진.gif" alt="">
+            <h1>magic circle</h1>
+            <p>lv: null</p>
+          </li>
+          <li onclick="uv(this)">
+            <script>
+              var uv = function (my) {
+                $("#rmfor").parent("div").prepend("<img src='이미지/어택/uv.gif'>")
+                $(my).remove();
+                $(".dialog>ul").append("<li>Cute things have become completely mine. uv is mine my cute uv</li>")
+                $("address.eft li").click(function (e) {
+                  rmfor_hp += 0.5;
+                  wjr_hp += 0.5;
+                });
+              }
+            </script>
+            <img src="이미지/어택/uv.gif" alt="">
+            <h1>uv</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="Greg_Sword2(this); texts(this,['I m still using the sword God gave me.', 'It will be incomparable to the power of a prosecutor or a time traveler.', 'The power of truth and the power to change the variable of time', 'Now take my sword and time.', 'Let s get started. The duel of those who fight for time...', 'I am the inspector. Don t do it, not an inspector. Do you understand If you don t know, pretend you know.'])"
+            data-click="0" data-lv="1">
+            <style>
+              @keyframes Greg_Sword2 {
+                0% {
+                  transform: translateX(0%);
+                }
+
+                12.5% {
+                  transform: translateX(-12.5%);
+                }
+
+                25% {
+                  transform: translateX(37.5%);
+                }
+
+                37.5% {
+                  transform: translateX(50%);
+                }
+
+                50% {
+                  transform: translateX(25%);
+                }
+
+                62.5% {
+                  transform: translateX(-12.5%);
+                }
+
+                87.5% {
+                  transform: translateX(37.5%);
+                }
+
+                100% {
+                  transform: translateX(200%);
+                }
+
+              }
+            </style>
+            <script>
+              var Greg_Sword2 = function (my) {
+                wjr_hp -= 16 * $(my).data("lv")
+                $(".Game_screen").css("animation", "Greg_Sword2 2s cubic-bezier(0.1, 0.125, 0.5, 1)")
+                setTimeout(() => {
+                  $(".Game_screen").css("animation", "")
+                }, 1000);
+              }
+            </script>
+            <img src="이미지/어택/그랙_검2.gif" alt="">
+            <h1>Greg_Sword<br>
+              version up</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="spear_and_fist(this); texts(this,['Watch out for the floor. It s meaningless no matter what you know.', 'Be careful left and right. What can I avoid?', 'Be careful in all directions.', 'Are you sick? Is that youth?', 'The game is. there is a penalty. That is what it is.', 'Would you like to become a star in the sky? Will it become the soil of this land?', 'Can I avoid this?'])"
+            data-lv="1" data-click="0">
+            <script>
+              var spear_and_fist = function (my) {
+                $("img#wjr").css("animation", "spear_and_fist 1s linear")
+                wjr_hp -= 2 * $(my).data('lv');
+                setTimeout(() => {
+                  wjr_hp -= 2 * $(my).data('lv');
+                }, 500);
+                setTimeout(() => {
+                  $("img#wjr").css("animation", "")
+                }, 1000);
+              }
+            </script>
+            <style>
+              @keyframes spear_and_fist {
+                0% {
+                  transform: translateY(0%);
+                }
+
+                25% {
+                  transform: translateY(-200%);
+                }
+
+                50% {
+                  transform: translateY(0%)scaleY(100%);
+                }
+
+                75% {
+                  transform: scaleX(50%);
+                }
+
+                100% {
+                  transform: scaleX(100%);
+                }
+              }
+            </style>
+            <img src="이미지/어택/창과주먹.gif" alt="">
+            <h1>spear and fist</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="bat(this); texts(this,['A new bat is always welcome.', 'Green eyes in a black body', 'It s better to hide and not fly high in the sky.', 'Am I victorious in the dark?', 'Did I say I was the source of lies? Did you think that you who speak without proof are lies?', 'That sky is scary. It would be better to hide in a cave. What do you think?', 'Welcome. I will welcome you to my cave or home.'])"
+            data-click="0" data-lv="1">
+            <script>
+              var bat = function (my) {
+                $("#rmfor").parent("div").prepend("<img src='이미지/캐릭터/박쥐-file/박쥐.gif' class='bat'>")
+                $(document).ready(function () {
+                  if (rmfor_hp <= 0) {
+                    $("img.bat").attr("src", "이미지/캐릭터/박쥐-file/박쥐_죽음.gif")
+                    setTimeout(() => {
+                      $("img.bat").attr("src", "이미지/캐릭터/박쥐-file/박쥐.gif")
+                    }, 1000);
+                  }
+                });
+                $("address.eft li").click(function (e) {
+                  wjr_hp -= $('.bat').length;
+                  $("img.bat").attr("src", "이미지/캐릭터/박쥐-file/박쥐_공격.gif")
+                  setTimeout(() => {
+                    $("img.bat").attr("src", "이미지/캐릭터/박쥐-file/박쥐_데미지.gif")
+                    setTimeout(() => {
+                      $("img.bat").attr("src", "이미지/캐릭터/박쥐-file/박쥐.gif")
+                    }, 1000);
+                  }, 1000);
+                });
+
+              }
+            </script>
+            <img src="이미지/어택/박쥐.gif" alt="">
+            <h1>bat (not a baseball bat)</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="hell(this); texts(this,['Do you know the story of snakes?','There is that long, long snake that never goes away. Do you understand?','Snakes do not go to heaven. It just goes to the ground.','There will be a new look in that deep, deep place.','Does the one from hell know what kind of power they have?','Now... feel the hell, do you understand?','It seems that the demon king above the sky or below the ground is calling me.'])"
+            data-click="0" data-lv="1">
+            <style>
+              .snake {
+                background-image: url(이미지/cg/뱀.gif);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+              }
+            </style>
+            <script>
+              var hell_t_or_f = true;
+              var hell = function (my) {
+                wjr_hp -= 2 * $(my).data('lv');
+                rmfor_hp = 2 * $(my).data('click');
+                $('img#rmfor').toggleClass('snake')
+                $('img#eft').toggleClass('snake')
+                $('img#wjr').toggleClass('snake')
+                $(window).scroll(function () {
+                  var scrollValue = $(document).scrollTop();
+                  if (scrollValue >= 400) {
+                    $('img#rmfor').attr('src', '이미지/cg/지옥_그랙.gif')
+                  }
+                });
+                $('div.Game_screen').toggleClass('snake')
+                if (hell_t_or_f) {
+                  $('div.Game_screen').css('height', '200vh').css('overflow', 'auto')
+                  hell_t_or_f = false
+                } else {
+                  $('div.Game_screen').css('height', '100vh').css('overflow', 'hidden')
+                  hell_t_or_f = true
+                }
+                alert("I'll congratulate you for coming to hell.")
+              }
+            </script>
+            <img src="이미지/어택/지옥.gif" alt="">
+            <h1>hell</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="dinosaur(this); texts(this,['Do dinosaurs become chickens later?','Are dinosaurs completely extinct?','There will be no relationship between me and dinosaurs.','Are dinosaurs a lie? Or is it a disappeared existence?','It would be beneficial if the dinosaurs helped with me.','I use this power given to me by dinosaurs quietly.','Never, never, never attack a dinosaur.'])"
+            data-click="0" data-lv="1">
+            <script>
+              var dinosaur = function (my) {
+                $('img').css('transform', 'scale(2)').css('transform-origin', 'center bottom')
+                rmfor_hp *= 1.5 + $(my).data('lv');
+                wjr_hp *= 1.5 + $(my).data('lv');
+                setTimeout(() => {
+                  $('img').css('transform', 'scale(1)').css('transform-origin', '')
+                }, 10000);
+              }
+            </script>
+            <img src="이미지/어택/다이노.gif" alt="">
+            <h1>dinosaur</h1>
+            <p>lv : 1</p>
+          </li>
+          <li
+            onclick="open_eyes(this); texts(this,['Do you know the pain you see one by one?','You don t understand me. It s a situation where you have to see even the things you don t want to see.','Someday you will see the truth. If that s not an open eye, that s correct.','Do not think that it is true with open eyes.','It is not opening your eyes, but seeing lies completely is an open eye.','An open mind is dangerous. Do you understand?','see. you see everything Even your secrets. I can see everything, even the things I don t want to see.'])"
+            data-lv="1" data-click="0">
+            <style>
+              body>main>div.Game_screen.open_i {
+                background: var(--color-white-green) !important;
+                background-image: url(이미지/cg/개안.png) !important;
+                background-position: center center !important;
+                background-repeat: no-repeat !important;
+                background-size: contain !important;
+              }
+            </style>
+            <script>
+              var open_eyes = function (my) {
+                $('body>main>div.Game_screen').toggleClass('open_i')
+                wjr_hp -= 69;
+                rmfor_hp += 96
+              }
+            </script>
+            <img src="이미지/어택/개안.gif" alt="">
+            <h1>open eyes</h1>
+            <p>lv : 1</p>
+          </li>
+          <li onclick="pirate(this);texts(this,['Who enjoys the sea?',
+'The wicked of the sea. it s a pirate. That is me.',
+'The romance of finding Baumol... There can be no such thing.',
+'Come out. This is mine now.',
+'Well, there are a lot of fish. It is satisfactory.',
+'A hero named pirate, a pirate pursuing his dreams, a pirate using the power of his seniors, etc. are just evil.',
+'I m a pirate. is the captain Do you understand Fuckin'])" data-click='0' data-lv="1">
+            <script>
+              var pirate = function (my) {
+                if ($('img').hasClass('pirate') == false) {
+                  $("#eft").parent("div").prepend("<img src='이미지/cg/해적.gif' class='pirate'>")
+                }
+                if ($(my).data('lv') == 8) {
+                  $("#eft").parent("div").find(".pirate").first().remove()
+                }
+                if (Math.floor(Math.random() * 100) + 1 == 77) {
+                  rmfor_hp = wjr_hp * $(my).data('lv');
+                }
+                else {
+                  wjr_hp -= 2;
+                }
+              }
+            </script>
+            <style>
+              .pirate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100% !important;
+                opacity: 0.0625;
+                height: auto;
+                z-index: 77;
+              }
+
+              body>main>div.Game_screen>div:has(.pirate) {
+                position: relative;
+              }
+            </style>
+            <img src="이미지/어택/해적.gif" alt="">
+            <h1>pirate</h1>
+            <p>lv : 1</p>
+          </li>
+          <li onclick="b_d_tree(this); texts(this,['Do you know what fell on the head of the one who was still. It was an apple. But why did the apple go downward?',
+'I sacrifice myself to give something to others. Is this good?',
+'Trees are not for me.',
+'There are already many trees. Its not just a tree, it s become a tree,.',
+'This tree lives forever',
+'See the eternal life of me and the tree',
+'Tree. I entrust the future of this system to you. Protect this system with your power forever. Do you understand?'])"
+            data-click="0" data-lv="1">
+            <script>
+              var b_d_tree = function (my) {
+                rmfor_hp += 2 * $(my).data('lv');
+                wjr_hp += 2 * attack_click;
+                $('img#eft').css('transform', 'scale(5)').css('transform-origin', 'center bottom')
+                setTimeout(() => {
+                  $('img#eft').css('transform', 'scale(1)').css('transform-origin', '')
+                }, 5040);
+              }
+            </script>
+            <img src="이미지/어택/나무.gif" alt="">
+            <h1>Birth and death of trees</h1>
+            <p>lv : 1</p>
+          </li>
+          <li onclick="Kamen_Rider_Code(this); texts(this,['transform.',
+'Have you seen a fox? no liars Did you see Ace?',
+'The world of ideals is mine.',
+'Fox, raccoon, bull, cat, etc. are not meaningless.',
+'Is the bike over there a fox towards me? I m coming anyway',
+'algorithm time / Code, Algorithm Grand Final Victory Strike'])" data-lv="1" data-click="0">
+            <script>
+              var Kamen_Rider_Code = function (my) {
+                $(':root').css('--color-main1', 'gold')
+                $(':root').css('--color-little_green', 'gold')
+                $('img#eft').addClass('krc');
+                DGP()
+                $('img#eft.krc').click(function (e) {
+                  e.preventDefault();
+                  wjr_hp -= ($(my).data('lv') + attack_click) * 2023
+                  $(this).attr('src', '이미지/어택/가면라이더_코드_아이디코어.gif' + '?number=' + Math.random() * 256)
+                  $('img#rmfor').attr('src', '이미지/cg/그랙_레이즈버클.gif' + '?number=' + Math.random() * 256)
+                  $('img#wjr').attr('src', '이미지/cg/적_레이즈버클.gif' + '?number=' + Math.random() * 256)
+                  typing('entry/Code Set!/Algorithm Set!/Time Binary Code & Algorithm/Ready... Start')
+                  $(".dialog>ul").append("<li onclick='typing($(this).text());'>" + 'What do you think about going back to the fork before the highlight?' + "</li>")
+                  $(".dialog>ul").append("<li onclick='typing($(this).text());'>" + 'The end of a long history and another turning point. Its result is this.' + "</li>")
+                  $(".dialog>ul").append("<li onclick='typing($(this).text());'>" + 'code set! LASER ON. Code - LOADING. READY FIGHT' + "</li>")
+                  $(".dialog>ul").append("<li onclick='typing($(this).text());'>" + 'code login. INSTALL Messenger of God. Time, space, situation editing. code' + "</li>")
+                  $(".dialog>ul").append("<li onclick='typing($(this).text());'>" + 'ruler. Goes. Do you understand' + "</li>")
+                  $('img#eft').removeClass('krc')
+                });
+                wjr_hp = 0
+              }
+            </script>
+            <img src="이미지/cg/가면라이더 코드.gif" alt="" style="display: none;"><img src="이미지/cg/그랙_레이즈버클.gif" alt=""><img
+              src="이미지/어택/가면라이더_코드_아이디코어.gif" alt=""><img src="이미지/cg/적_레이즈버클.gif" alt="">
+            <h1>Kamen Rider Code(Gitz)</h1>
+            <p>lv : 1</p>
+          </li>
+          <li onclick="magic_hat(this); texts(this,['It s magic.You can expect it.',])" data-click="0" data-lv="1">
+            <script>
+              var magic_hat = function (params) {
+                rmfor_hp += 7;
+                wjr_hp -= 7;
+                $('img.bat').addClass('hat')
+                $("address.eft li").click(function (e) {
+                  $("img.bat.hat").attr("src", "이미지/캐릭터/그랙-file/그랙_공격.gif")
+                  setTimeout(() => {
+                    $("img.bat.hat").attr("src", "이미지/캐릭터/그랙-file/그랙_데미지.gif")
+                    setTimeout(() => {
+                      $("img.bat.hat").attr("src", "이미지/캐릭터/그랙-file/그랙.gif")
+                    }, 1000);
+                  }, 1000);
+                });
+              }
+            </script>
+            <img src="이미지/어택/마법모자.gif" alt="">
+            <h1>magic hat</h1>
+            <p>lv : 1</p>
+          </li>
+        </ul>
+      </address>
+      <address class="menu off">
+        <button
+          onclick="$('.Game_screen>nav,.Game_screen>h1,.Interaction').toggleClass('off');$('.menu,.Game_screen>div').toggleClass('op')">ui</button>
+        <button onclick="$('body>div').toggleClass('off');">color</button>
+        <button onclick="open_w('index.html')">min
+          <script>
+            var open_w = function name(url) {
+              window.open(url, "PopupWin", "width=425,height=540")
+            }
+          </script>
+        </button>
+        <button onclick="open_w('sns.html')">sns
+        </button>
+        <button onclick="open_w('')">null
+        </button>
+      </address>
+    </div>
+    <div class="growth_screen off">
+      <h1>growth <span class="growth_span">0</span></h1>
+      <address>
+        <h2>extra life <span class="growth_life_span">0</span></h2>
+        <button onclick="game_poit--; extra_life++;poit_fun()">+</button>
+        <button onclick="game_poit++; extra_life--; poit_fun()">-</button>
+      </address>
+      <address>
+        <h2>bonus attack power <span class="growth_attack_span">0</span></h2>
+        <button onclick="game_poit--; extra_attack++;poit_fun()">+</button>
+        <button onclick="game_poit++; extra_attack--; poit_fun()">-</button>
+      </address>
+    </div>
+    <div class="shopping_screen off">
+      <h1>growth <span class="shopping_span">0</span></h1>
+      <div class="item">
+        <img src="이미지/아이템/상자.gif" alt="">
+        <h1>coin</h1>
+        <button onclick="shopping_fun(1,'돈')">1 coin</button>
+      </div>
+      <div class="item">
+        <img src="이미지/아이템/닌자.gif" alt="">
+        <h1>Ninja</h1>
+        <button onclick="shopping_fun(2,'닌자')">2 coin</button>
+      </div>
+      <div class="item">
+        <img src="이미지/캐릭터/그랙-file/그랙.gif" alt="">
+        <h1>rmfor</h1>
+        <button onclick="shopping_fun(0,'')">0 coin</button>
+      </div>
+    </div>
+    <div class="Interaction">
+      <button
+        onmouseover="click_hover_text('There are three forking paths for those who want to attack. If you ask me what is the most important thing here, I will answer you right away. Do you understand')"
+        onmouseout="$('span.hover').addClass('off')" onclick="$('.eft').toggleClass('off'); attack(); $('.button_attack').css('pointer-events', 'none'); attack_click++
+" style="color: var( --color-white-red); text-shadow: 0 0 0.75em var( --color-white-red);"
+        class="button_attack">attack</button>
+      <script>
+        var attack = function (params) {
+          function shuffleList() {
+            var ul = $('address.eft ul');
+            for (var i = ul.children().length; i >= 0; i--) {
+              ul.append(ul.children().eq(Math.random() * i | 0));
+            }
+          }
+          shuffleList();
+          var $items = $("address.eft ul li");
+          var itemsCount = $items.length;
+          var randomIndexes = [];
+          while (randomIndexes.length < 3) {
+            var randomIndex = Math.floor(Math.random() * itemsCount);
+            if (randomIndexes.indexOf(randomIndex) === -1) {
+              randomIndexes.push(randomIndex);
+            }
+          }
+          $items.addClass("off");
+          for (var i = 0; i < randomIndexes.length; i++) {
+            $items.eq(randomIndexes[i]).removeClass("off");
+          }
+        }
+      </script>
+      <button
+        onmouseover="click_hover_text('My story begins now. Do you want to hear the lines from my story? well come then Let s begin. You know, there is no need to ask questions anyway.')"
+        onmouseout="$('span.hover').addClass('off')" onclick="$('.dialog').toggleClass('off');"
+        style="color: var(--color-white-green); text-shadow: 0 0 0.75em var(--color-white-green);"
+        class="">speech</button>
+      <button
+        onmouseover="click_hover_text('Now, shopping is a luxury. However, if you want to see another, new look of me, buy it. Then my god will feel better too. buy in conclusion Do you understand If you don t know, try it without thinking.')"
+        onmouseout="$('span.hover').addClass('off')"
+        style="color: var(--color-white-bule); text-shadow: 0 0 0.75em var(--color-white-bule);"
+        onclick="$('.shopping_screen, .Game_screen').toggleClass('off'); shopping_fun(0,skin_var_rmfor)">shopping</button>
+      <button
+        onmouseover="click_hover_text('Will you press the button with the settings for summoning the world to change it? Do you know that regrets are not my fault? no i need to know Please. Do you understand This is not a question. It is a command.')"
+        onmouseout="$('span.hover').addClass('off')" onclick="$('.menu').toggleClass('off');">menu</button>
+    </div>
+  </main>
+  <!-- <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script> -->
+  <script src="자바스크립트/js_q.js"></script>
+  <script src="자바스크립트/index.js"></script>
+  <script src="자바스크립트/indexegg.js"></script>
+  <script src="자바스크립트/indexcavas.js"></script>
+</body>
+
+</html>

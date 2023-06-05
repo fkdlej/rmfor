@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="CSS/sns.css">
+</head>
+
+<body>
+  <div class="output">
+    <h1>list of articles</h1>
+    <form action="">
+      <label for="search">search</label>
+      <input type="text" name="search" id="">
+      <button name="search">Go!</button>
+    </form>
+    <ul>
+      <li onclick="$('.output>div:nth-of-type(1)').toggleClass('off');">우리 학교에 이상한 놈이 전학 옴</li>
+    </ul>
+    <div class="off">
+      <button onclick="$('.output>div:nth-of-type(1)').toggleClass('off')">X</button>
+      <h2>우리 학교에 이상한 놈이 전학 옴</h2>
+      오늘도 평소처럼 평범한 날이였거든 근데 전학생이 왔다 말이야<br>
+      그래서 선생님이 전학생에게 자기소개를 하라 했어<br>근데... <br>
+      그 녀석이 이렇게 말했어<br>
+      "만나서 반갑다. 인간들이여. 나는 신의 사자다. 너희들과 친구가 되는 일은 없을 것이다. 나의 이름은 너희에게 무의미하다. 그리고 너희의 이름도 나에겐 무의미하다. 친구따위 필요없다. 알겠는가. 너희는
+      나라는 자에게 관심이 무의미하다는 것을 알아랴. 내가 이 학교에 온것은 학교폭력이라는 이벤트가 아닌 나의 목적이 있었어다. 알겠는가. 나의 자기소개는 이걸로 끝이다. 알겠는가. 선생이라는 자여 이정도면
+      되겠는가."
+      <br>이거 좆된거냐?
+      <br>
+      <!-- <div class="buts">
+        <button>good</button><button>bad</button>
+        <button>share</button><button>Favorites</button>
+      </div> -->
+      <ul>
+        <!-- my, you -->
+      </ul>
+      <textarea name="" id="" cols="" rows="4"></textarea>
+      <button>>>></button>
+    </div>
+  </div>
+  <div class="input">
+    <input type="text">
+    <div class="main">
+      <textarea name="" id="" cols="64" rows="1"></textarea>
+      <button>reset</button><button>submit</button>
+    </div>
+  </div>
+  <div class="Favorites">
+    <ul>
+      <li>Lorem ipsum dolor sit amet.</li>
+      <li>Facere vero dolores incidunt quam?</li>
+      <li>Quo porro distinctio sit facere?</li>
+      <li>Pariatur animi quasi laudantium veritatis.</li>
+      <li>Quae quod iste nihil unde!</li>
+      <li>Doloribus est sit unde ad.</li>
+      <li>Quaerat autem quia mollitia molestiae?</li>
+      <li>Commodi mollitia eveniet vitae illum.</li>
+      <li>Nisi dignissimos pariatur nulla doloribus.</li>
+      <li>Quam sapiente debitis quis itaque.</li>
+    </ul>
+  </div>
+  <nav>
+    <ul>
+      <li onclick="$('div.output').removeClass('off');$('body>div').not('div.output').addClass('off')">reading</li>
+      <li onclick="$('div.input').removeClass('off');$('body>div').not('div.input').addClass('off')">writing</li>
+      <li onclick="$('div.Favorites').removeClass('off');$('body>div').not('div.Favorites').addClass('off')">Favorites
+      </li>
+      <!-- <li>My Info</li> -->
+    </ul>
+  </nav>
+  <script src="자바스크립트/js_q.js"></script>
+  <script src="자바스크립트/sns.js"></script>
+</body>
+
+</html>
